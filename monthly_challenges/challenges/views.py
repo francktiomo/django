@@ -43,10 +43,13 @@ def monthly_challenge_by_number(request, month):
     return HttpResponseRedirect(redirect_path)
 
 
-def monthly_challenge(request, month):
+def monthly_challenge(request, month: str):
     try:
         challenge_text = MONTHLY_CHALLENGES[month]
-        return render(request, "challenges/challenge.html")
+        return render(request, "challenges/challenge.html", {
+            "text": challenge_text,
+            "month_name": month.capitalize()
+        })
         # response_data = render_to_string("challenges/challenge.html", )
         # return HttpResponse(response_data)
     except:
