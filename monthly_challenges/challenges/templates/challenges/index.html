@@ -8,7 +8,8 @@
   <body>
     <ul>
       {% for month in months %}
-      <li><a href="">{{ month | title }}</a></li>
+      {% comment %} <li><a href="/challenges/{{ month }}">{{ month | title }}</a></li> {% endcomment %}
+      <li><a href="{% url "month-challenge" month %}">{{ month | title }}</a></li>
       {% endfor %}
     </ul>
   </body>
