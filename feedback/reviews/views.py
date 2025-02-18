@@ -6,6 +6,7 @@ from .models import Review
 
 from django.http import HttpRequest
 from django.views import View
+from django.views.generic.base import TemplateView
 
 # Create your views here.
 
@@ -28,9 +29,14 @@ class ReviewView(View):
             'form': form
         })
     
-class ThxView(View):
-    def get(self, request: HttpRequest):
-        return render(request, 'reviews/thx.html')
+class ThxView(TemplateView):
+    template_name = 'reviews/thx.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['dynamic_content_example'] = 'Dynamic content from TemplateView'
+        return context
+    
 
 
 # def review(request: HttpRequest):
