@@ -4,11 +4,9 @@
 
 {% block content %}
   <h1>List Of Reviews</h1>
-  <ul>
+  <ul class="reviews-list">
     {% for review in reviews %}
-      <a href="">
-        <li>{{ review.username }} (Rating: {{ review.rating }})</li>
-      </a>
+      <li class="review-item"><a href="">{{ review.username }} (Rating: {{ review.rating }})</a></li>
     {% endfor %}
   </ul>
 {% endblock %}

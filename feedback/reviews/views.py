@@ -39,13 +39,24 @@ class ThxView(TemplateView):
     
 
 class ReviewsListView(TemplateView):
-    template_name = 'reviews/review_list.html'
+    template_name = 'reviews/reviews.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         reviews = Review.objects.all()
         context['reviews'] = reviews
         return context
+    
+class ReviewDetailView(TemplateView):
+    template_name = 'reviews/review_detail.html'
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        id = kwargs['id']
+        review = Review.objects.get(pk=id)
+        context["review"] = review
+        return context
+    
     
 
 

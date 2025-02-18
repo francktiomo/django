@@ -68,3 +68,31 @@ button:active {
 .errors label {
   color: #680000;
 }
+
+.reviews-list {
+  list-style: none;
+  margin: 3rem auto;
+  width: 90%;
+  max-width: 10rem;
+  padding: 1rem;
+  border-radius: 12px;
+  background-color: white;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}
+
+.review-item {
+  margin: 1rem 0;
+  text-align: center;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+
+.review-item:last-of-type {
+  border-bottom: none;
+}
+
+.review-item a {
+  color: #1f0050;
+  text-decoration: none;
+}
