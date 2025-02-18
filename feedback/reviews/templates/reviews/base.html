@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'reviews/style.css' %}">
+</head>
+<body>
+  {% comment %} <header>
+    <h1>Welcome to My Site</h1>
+  </header> {% endcomment %}
+
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+
+  {% comment %} <footer>
+    <p>&copy; 2023 My Site</p>
+  </footer> {% endcomment %}
+</body>
+</html>
