@@ -1,21 +1,24 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
 
+from .forms import ReviewForm
+
 # Create your views here.
 
 
 def review(request):
     if request.method == 'POST':
-        entered_username = request.POST['username']
+        form = ReviewForm(request.POST)
 
-        if entered_username == '':
-            return render(request, 'reviews/review.html', {
-                'error': 'Please enter a username'
-            })
-        print(entered_username)
-        return HttpResponseRedirect('thx/')
+        if form.is_valid():
+            print(form.cleaned_data)
+            entered_username = form.cleaned_data['username']
+            return HttpResponseRedirect('thx/')
+    else:
+      form = ReviewForm()
+
     return render(request, 'reviews/review.html', {
-        'error': ''
+        'form': form
     })
 
 
