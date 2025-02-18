@@ -5,5 +5,5 @@ from . import views
 urlpatterns = [
     # path('', views.review),
     path('', views.ReviewView.as_view()),
-    path('thx/', views.thx),
+    path('thx/', views.ThxView.as_view()),
 ]

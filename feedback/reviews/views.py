@@ -27,6 +27,10 @@ class ReviewView(View):
         return render(request, 'reviews/review.html', {
             'form': form
         })
+    
+class ThxView(View):
+    def get(self, request: HttpRequest):
+        return render(request, 'reviews/thx.html')
 
 
 # def review(request: HttpRequest):
@@ -48,5 +52,5 @@ class ReviewView(View):
 #         'form': form
 #     })
 
-def thx(request):
-    return render(request, 'reviews/thx.html')
+# def thx(request):
+#     return render(request, 'reviews/thx.html')
